@@ -39,6 +39,16 @@ h1 {
 	padding: 0px;
 }
 
+h1 a {
+	color: #333;
+	text-decoration: none;
+}
+
+h1 a:hover {
+	color: #666;
+	opacity: 1;
+}
+
 h2 {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	font-size: 10px;
