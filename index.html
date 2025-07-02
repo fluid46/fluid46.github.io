@@ -8,11 +8,14 @@
 <body>
 <section>
 <img src="assets/fish.gif" width="141" height="92" /><br /><br /><br />
-<header>
-  La Mer
-</header>
-<nav>
-<a href="index.html">&bull;</a> <a href="index.html">&bull;</a> <a href="index.html">&bull;</a> </nav>
+<div class="clearfix">
+	<header>
+	  La Mer
+	</header>
+	<nav>
+	<a href="index.html">&bull;</a> <a href="blog.html">&bull;</a> <a href="contact.html">&bull;</a> 
+	</nav>
+</div>
 <blog>
 	<article>
 	<h1>&bull; {$TITLE}</h1><h2>$DATE (DD/MM/YY HH:MM)</h2>
@@ -21,12 +24,13 @@
 	</p>
 	</article>
 </blog>
-<footer><a href="index.html"><</a> <a href="index.html">></a></footer>
-<footer l>Page {$PAGENUM}</footer l>
+<footer>
+	<a href="index.html"><</a> 
+	<span>Page {$PAGENUM}</span>
+	<a href="index.html">></a>
+</footer>
 </section>
 
-
-</body>
 <footerb>
 <img src="assets/gnunano.gif" />
 <img src="assets/dbd.gif" />
@@ -35,4 +39,5 @@
 <img src="assets/NO_JS.gif" />
 <img src="assets/SMILE.png" />
 </footerb>
+</body>
 </html>

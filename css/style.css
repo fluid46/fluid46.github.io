@@ -1,25 +1,34 @@
 body {
 	background-image: url(../assets/bg.gif);
+	margin: 0;
+	padding: 0;
+	min-height: 100vh;
+	position: relative;
 }
+
 section {
 	width: 410px;
 	margin: auto;
 	padding-top: 100px;
+	padding-bottom: 120px; /* Add space for footer */
 	text-align: center;
 }
+
 article {
 	width: 370px;
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	font-size: 10px;
-	text-align:left;
+	text-align: left;
 	color: #333;
 	line-height: 20px;
 	background-color: #FFF;
 	padding: 20px;
 	padding-top: 30px;
 	padding-bottom: 30px;
-	float: left;
+	margin: 20px auto;
+	clear: both; /* Clear floats */
 }
+
 h1 {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	font-size: 10px;
@@ -29,6 +38,7 @@ h1 {
 	float: left;
 	padding: 0px;
 }
+
 h2 {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	font-size: 10px;
@@ -38,6 +48,7 @@ h2 {
 	margin: 0px;
 	padding: 0px;
 }
+
 header {
 	font-family: "Courier New", Courier, monospace;
 	color: #FFF;
@@ -48,58 +59,91 @@ header {
 	font-size: 11px;
 	letter-spacing: 1px;
 	opacity: 0.8;
+	clear: both;
+	margin-top: 20px;
 }
 
 nav {
 	font-family: "Courier New", Courier, monospace;
 	color: #FFF;
 	float: right;
+	margin-top: 20px;
 }
 
-nav a{
+nav a {
 	font-family: "Courier New", Courier, monospace;
 	color: #FFF;
-	float: right;
-	text-decoration:none;
+	text-decoration: none;
 	opacity: 0.7;
+	margin-left: 5px;
 }
+
 footer {
 	font-family: "Courier New", Courier, monospace;
 	color: #FFF;
 	font-weight: normal;
 	font-variant: normal;
 	text-transform: uppercase;
-	float: right;
 	font-size: 12px;
 	letter-spacing: 1px;
+	clear: both;
+	text-align: center;
+	margin-top: 30px;
 }
-footer a{
+
+footer a {
 	font-family: "Courier New", Courier, monospace;
 	color: #FFF;
-	text-decoration:none;
+	text-decoration: none;
 	opacity: 0.7;
+	margin: 0 10px;
 }
+
 a:hover {
 	opacity: 1;
 }
+
 footerb {
-    display: flex; /* Use flexbox for horizontal alignment */
-    justify-content: center; /* Center the images */
-    /* align-items: center; /* Center the images vertically */
-    padding: 10px 0; /* Padding for spacing */
-    position: absolute; /* Positioning context */
-    bottom: 0; /* Stick to the bottom */
-    width: 100%; /* Full width */
-    font-family: "Courier New", Courier, monospace;
-    color: #FFF;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: uppercase;
-    font-size: 12px;
-    letter-spacing: 1px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px 0;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	font-family: "Courier New", Courier, monospace;
+	color: #FFF;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: uppercase;
+	font-size: 12px;
+	letter-spacing: 1px;
+	background-color: rgba(0, 0, 0, 0.3);
+	backdrop-filter: blur(5px);
 }
 
 footerb img {
-    margin: 0 10px; /* Space between images */
-    max-height: 50px; /* Limit the height of images */
+	margin: 0 5px;
+	max-height: 30px;
+	opacity: 0.8;
+	transition: opacity 0.3s ease;
+}
+
+footerb img:hover {
+	opacity: 1;
+}
+
+/* Clear floats properly */
+.clearfix::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* Fix blog section */
+blog {
+	display: block;
+	clear: both;
+	margin-top: 30px;
 }
