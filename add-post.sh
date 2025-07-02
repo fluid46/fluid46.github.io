@@ -3,11 +3,10 @@
 # Configuration
 POSTS_PER_PAGE=3
 PREVIEW_WORDS=20
-POSTS_DIR="posts"
-ASSETS_DIR="assets"
+BLOGS_DIR="blogs"
 
-# Create posts directory if it doesn't exist
-mkdir -p "$POSTS_DIR"
+# Create blogs directory if it doesn't exist
+mkdir -p "$BLOGS_DIR"
 
 # Function to get current date and time
 get_datetime() {
@@ -28,19 +27,18 @@ get_preview() {
     }'
 }
 
-# Function to generate individual post page
-generate_post_page() {
+# Function to create blog post template
+create_blog_template() {
     local title="$1"
     local date="$2"
-    local content="$3"
-    local filename="$4"
+    local filename="$3"
     
     cat > "$filename" << EOF
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>$title - F L U I D 4 6</title>
-<link rel="icon" type="image/gif" href="assets/favicon.gif">
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all">
+<link rel="icon" type="image/gif" href="../assets/favicon.gif">
+<link href="../css/style.css" rel="stylesheet" type="text/css" media="all">
 <style>
 section {
     width: 500px;
@@ -53,35 +51,36 @@ article {
 
 <body>
 <section>
-<img src="assets/fish.gif" width="141" height="92" /><br /><br /><br />
+<img src="../assets/fish.gif" width="141" height="92" /><br /><br /><br />
 <div class="clearfix">
     <header>
       La Mer
     </header>
     <nav>
-    <a href="index.html">&bull;</a> <a href="blog.html">&bull;</a> <a href="contact.html">&bull;</a> 
+    <a href="../index.html">&bull;</a> <a href="../blog.html">&bull;</a> <a href="../contact.html">&bull;</a> 
     </nav>
 </div>
 
 <article>
 <h1>&bull; $title</h1><h2>$date</h2>
 <p><br />
-$content
+<!-- Write your blog content here -->
+
 </p>
 </article>
 
 <footer>
-    <a href="index.html">← Back to Home</a>
+    <a href="../index.html">← Back to Home</a>
 </footer>
 </section>
 
 <footerb>
-<img src="assets/gnunano.gif" />
-<img src="assets/dbd.gif" />
-<img src="assets/github.gif" />
-<img src="assets/grapheneos.gif" />
-<img src="assets/NO_JS.gif" />
-<img src="assets/SMILE.png" />
+<img src="../assets/gnunano.gif" />
+<img src="../assets/dbd.gif" />
+<img src="../assets/github.gif" />
+<img src="../assets/grapheneos.gif" />
+<img src="../assets/NO_JS.gif" />
+<img src="../assets/SMILE.png" />
 </footerb>
 </body>
 </html>
@@ -90,14 +89,18 @@ EOF
 
 # Function to rebuild all pages
 rebuild_pages() {
-    # Get all posts sorted by date (newest first)
+    # Get all blog posts sorted by date (newest first)
     local posts=()
     while IFS= read -r -d '' file; do
         posts+=("$file")
-    done < <(find "$POSTS_DIR" -name "*.txt" -print0 | sort -z -r)
+    done < <(find "$BLOGS_DIR" -name "*.html" -print0 | sort -z -r)
     
     local total_posts=${#posts[@]}
     local total_pages=$(( (total_posts + POSTS_PER_PAGE - 1) / POSTS_PER_PAGE ))
+    
+    if [ $total_pages -eq 0 ]; then
+        total_pages=1
+    fi
     
     # Generate index.html (page 1)
     generate_page_content 1 "$total_pages" "${posts[@]:0:$POSTS_PER_PAGE}" > index.html
@@ -115,6 +118,13 @@ rebuild_pages() {
     done
 }
 
+# Function to extract content from HTML file
+extract_content_from_html() {
+    local file="$1"
+    # Extract content between <p><br /> and </p> tags
+    sed -n '/<p><br \/>/,/<\/p>/p' "$file" | sed '1d;$d' | sed '/^$/d'
+}
+
 # Function to generate page content
 generate_page_content() {
     local current_page="$1"
@@ -122,7 +132,7 @@ generate_page_content() {
     shift 2
     local posts=("$@")
     
-    cat << EOF
+    cat << 'EOF'
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>F L U I D 4 6</title>
@@ -147,22 +157,19 @@ EOF
     # Generate articles for this page
     for post_file in "${posts[@]}"; do
         if [ -f "$post_file" ]; then
-            local basename=$(basename "$post_file" .txt)
+            local basename=$(basename "$post_file" .html)
             local title=$(echo "$basename" | cut -d'-' -f1)
             local date_part=$(echo "$basename" | cut -d'-' -f2-)
             local formatted_date=$(echo "$date_part" | sed 's/-/\//g' | sed 's/:/ /')
-            local content=$(cat "$post_file")
+            local content=$(extract_content_from_html "$post_file")
             local preview=$(get_preview "$content")
-            local post_html="${basename}.html"
-            
-            # Generate individual post page
-            generate_post_page "$title" "$formatted_date" "$content" "$post_html"
+            local relative_path="blogs/$basename.html"
             
             # Add article to current page
             cat << EOF
 
 	<article>
-	<h1>&bull; <a href="$post_html" style="color: #333; text-decoration: none;">$title</a></h1><h2>$formatted_date</h2>
+	<h1>&bull; <a href="$relative_path" style="color: #333; text-decoration: none;">$title</a></h1><h2>$formatted_date</h2>
 	<p><br />
 	$preview
 	</p>
@@ -220,26 +227,29 @@ fi
 
 # Create filename
 FILENAME_DATE=$(get_filename_date)
-POST_FILE="$POSTS_DIR/${TITLE}-${FILENAME_DATE}.txt"
+BLOG_FILE="$BLOGS_DIR/${TITLE}-${FILENAME_DATE}.html"
+CURRENT_DATE=$(get_datetime)
 
-echo "Creating post: $POST_FILE"
+echo "Creating blog post: $BLOG_FILE"
+
+# Create the blog template
+create_blog_template "$TITLE" "$CURRENT_DATE" "$BLOG_FILE"
+
 echo "Opening micro editor..."
 
 # Open micro editor
-micro "$POST_FILE"
+micro "$BLOG_FILE"
 
 # Check if file was created and has content
-if [ ! -f "$POST_FILE" ] || [ ! -s "$POST_FILE" ]; then
-    echo "Post creation cancelled or file is empty."
-    [ -f "$POST_FILE" ] && rm "$POST_FILE"
+if [ ! -f "$BLOG_FILE" ]; then
+    echo "Blog post creation cancelled."
     exit 1
 fi
 
-echo "Post created successfully!"
+echo "Blog post created successfully!"
 echo "Rebuilding pages..."
 
 # Rebuild all pages
 rebuild_pages
 
 echo "Blog updated! Check index.html for the latest posts."
-EOF
