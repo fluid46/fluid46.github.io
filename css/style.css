@@ -1,111 +1,105 @@
-/* Basic reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    background-color: #0b0b0b;
-    background-image: radial-gradient(#1b1b1b 1px, transparent 0);
-    background-size: 32px 32px;
-    font-family: 'Press Start 2P', monospace;
-    color: #eee;
-    padding: 20px;
+	background-image: url(../assets/bg.gif);
 }
-
-/* Pixel font */
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
-a {
-    color: #00ffff;
-    text-decoration: none;
+section {
+	width: 410px;
+	margin: auto;
+	padding-top: 100px;
+	text-align: center;
 }
-
-a:hover {
-    text-decoration: underline;
+article {
+	width: 370px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 10px;
+	text-align:left;
+	color: #333;
+	line-height: 20px;
+	background-color: #FFF;
+	padding: 20px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	float: left;
 }
-
-/* Header styling */
+h1 {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 10px;
+	text-transform: uppercase;
+	font-weight: normal;
+	margin: 0px;
+	float: left;
+	padding: 0px;
+}
+h2 {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	color: #CCC;
+	float: right;
+	margin: 0px;
+	padding: 0px;
+}
 header {
-    background-color: #2e1f39;
-    border-bottom: 4px solid #1e102a;
-    padding: 10px;
-    margin-bottom: 30px;
+	font-family: "Courier New", Courier, monospace;
+	color: #FFF;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: uppercase;
+	float: left;
+	font-size: 11px;
+	letter-spacing: 1px;
+	opacity: 0.8;
 }
 
-nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    gap: 40px;
+nav {
+	font-family: "Courier New", Courier, monospace;
+	color: #FFF;
+	float: right;
 }
 
-nav li a {
-    color: #0f0;
-    font-size: 12px;
+nav a{
+	font-family: "Courier New", Courier, monospace;
+	color: #FFF;
+	float: right;
+	text-decoration:none;
+	opacity: 0.7;
 }
-
-nav li a:hover {
-    color: #ff00ff;
-}
-
-/* Main content box */
-.box {
-    background-color: #1f1f2f;
-    border: 3px solid #5c2d91;
-    padding: 20px;
-    max-width: 700px;
-    margin: 0 auto;
-    color: #fff;
-    font-size: 12px;
-    line-height: 1.5;
-    box-shadow: 0 0 10px #5c2d91;
-}
-
-.box h2 {
-    font-size: 16px;
-    color: #ff00ff;
-    margin-bottom: 15px;
-    text-align: center;
-    text-shadow: 2px 2px 0 #000;
-}
-
-/* Footer */
 footer {
-    background-color: #111;
-    border-top: 4px solid #333;
-    padding: 10px;
-    font-size: 10px;
-    text-align: center;
-    margin-top: 50px;
-    color: #ccc;
+	font-family: "Courier New", Courier, monospace;
+	color: #FFF;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: uppercase;
+	float: right;
+	font-size: 12px;
+	letter-spacing: 1px;
+}
+footer a{
+	font-family: "Courier New", Courier, monospace;
+	color: #FFF;
+	text-decoration:none;
+	opacity: 0.7;
+}
+a:hover {
+	opacity: 1;
+}
+footerb {
+    display: flex; /* Use flexbox for horizontal alignment */
+    justify-content: center; /* Center the images */
+    /* align-items: center; /* Center the images vertically */
+    padding: 10px 0; /* Padding for spacing */
+    position: absolute; /* Positioning context */
+    bottom: 0; /* Stick to the bottom */
+    width: 100%; /* Full width */
+    font-family: "Courier New", Courier, monospace;
+    color: #FFF;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
 }
 
-footer img {
-    margin: 5px;
-    height: 32px;
-    image-rendering: pixelated;
-    vertical-align: middle;
-}
-
-/* Extra flavor */
-footer a {
-    color: #0ff;
-}
-
-footer a:hover {
-    color: #f0f;
-}
-
-/* Responsive tweaks */
-@media screen and (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .box {
-        margin: 10px;
-    }
+footerb img {
+    margin: 0 10px; /* Space between images */
+    max-height: 50px; /* Limit the height of images */
 }
