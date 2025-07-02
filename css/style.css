@@ -60,14 +60,14 @@ header {
 	letter-spacing: 1px;
 	opacity: 0.8;
 	clear: both;
-	margin-top: 20px;
+	margin-top: 0px;
 }
 
 nav {
 	font-family: "Courier New", Courier, monospace;
 	color: #FFF;
 	float: right;
-	margin-top: 20px;
+	margin-top: 0px;
 }
 
 nav a {
