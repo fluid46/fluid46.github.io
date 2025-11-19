@@ -1,3 +1,6 @@
+/*==============================
+  Custom Fonts
+==============================*/
 @font-face {
   font-family: 'font';
   src: url('/font/Font-Regular.ttf') format('truetype');
@@ -5,6 +8,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'font';
   src: url('/font/Font-Bold.ttf') format('truetype');
@@ -13,102 +17,168 @@
   font-display: swap;
 }
 
-.Highlights {
-    
+/*==============================
+  Global Styles
+==============================*/
+html {
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
 body {
-    background: #000435;
-    color: #e0e0e0;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
-    max-width: 800px;
-  	margin: 15px;
-    font-family: font;
-    font-weight: normal;
-    line-height: 1.2rem;
-    word-wrap: break-word;
+  margin: 0;
+  padding: 0;
+  background: #000435;
+  color: #e0e0e0;
+  font-family: 'font', sans-serif;
+  line-height: 1.4rem;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
 }
 
+/*==============================
+  Main Content
+==============================*/
 main {
+  max-width: 800px;
+  margin: 0 auto;       /* Center horizontally */
+  padding: 20px;
 }
 
-img {
-	max-width: 100%;
-}
-
-strong, b {
-  font-weight: bold;
-}
-
-.bottom-footer {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 10px 0;
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	font-family: "Courier New", Courier, monospace;
-	color: #FFF;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: uppercase;
-	font-size: 12px;
-	letter-spacing: 1px;
-	background-color: rgba(0, 0, 0, 0.3);
-	backdrop-filter: blur(5px);
-}
-
-.bottom-footer img {
-	margin: 0 5px;
-	max-height: 30px;
-	opacity: 0.8;
-	transition: opacity 0.3s ease;
-}
-
-.bottom-footer img:hover {
-	opacity: 1;
+h1, h2, h3 {
+  color: #2289DD;
+  margin: 1rem 0;
 }
 
 h1 {
-    color: #2289DD;
-    text-decoration: underline #f5f5dc;
-    text-align: center;
+  text-decoration: underline #f5f5dc;
+  text-align: center;
 }
 
-h2 {
-    color: #2289DD;
+h2, h3 {
+  text-align: left;
 }
 
-h3 {
-    color: #2289DD;
+p {
+  margin: 0.5rem 0;
 }
 
+/*==============================
+  Links
+==============================*/
 a {
-    color: #f5f5dc;
+  color: #f5f5dc;
+  text-decoration: none;
 }
 
 a:hover {
-    color: #ffffff;
-    opacity: 0.8;
+  color: #ffffff;
+  opacity: 0.8;
 }
 
+/*==============================
+  Details/Summary
+==============================*/
 summary {
-    color: #008800;
-    background: #101210;
-}
-
-details {
-    background: #222;
+  color: #008800;
+  background: #101210;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
 }
 
 summary:hover {
   color: #fff;
-  cursor: pointer;
+}
+
+details {
+  background: #222;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+/*==============================
+  Highlights & Services
+==============================*/
+.Highlights {
+  padding: 0.5rem;
 }
 
 .service {
   padding: 0.5rem;
-  border: solid thin #f5f5dc;
+  border: 1px solid #f5f5dc;
+  margin: 0.5rem 0;
+}
+
+/*==============================
+  Images
+==============================*/
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/*==============================
+  Bottom Footer
+==============================*/
+.bottom-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  font-family: "Courier New", Courier, monospace;
+  color: #FFF;
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+}
+
+.bottom-footer img {
+  margin: 0 5px;
+  max-height: 30px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.bottom-footer img:hover {
+  opacity: 1;
+}
+
+/*==============================
+  Responsive Adjustments
+==============================*/
+@media (max-width: 600px) {
+  html {
+    font-size: 14px;
+  }
+
+  main {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+}
+
+/*==============================
+  Word Wrapping
+==============================*/
+body, p, h1, h2, h3, a {
+  word-wrap: break-word;
 }
