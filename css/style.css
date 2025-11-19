@@ -71,12 +71,13 @@ p {
 ==============================*/
 a {
   color: #f5f5dc;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 a:hover {
   color: #ffffff;
   opacity: 0.8;
+  text-decoration: underline;
 }
 
 /*==============================
