@@ -63,7 +63,7 @@ h2, h3 {
 }
 
 p {
-  margin: 0.5rem 0;
+  margin: 0 auto;
 }
 
 /*==============================
@@ -91,6 +91,10 @@ summary {
 
 summary:hover {
   color: #fff;
+}
+
+.nav-links {
+	margin: 0 auto;
 }
 
 details {
@@ -154,6 +158,12 @@ img {
 .bottom-footer img:hover {
   opacity: 1;
 }
+
+footer {
+	margin: 0 auto;
+}
+
+
 
 /*==============================
   Responsive Adjustments
