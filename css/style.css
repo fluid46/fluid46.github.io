@@ -1,157 +1,114 @@
-/* === Base === */
-body {
-  background-image: url(../assets/tiles/tile-nice.png);
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  position: relative;
-  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-  color: #333;
-}
-
-/* === Main Section === */
-section {
-  width: 410px;
-  margin: 0 auto;
-  padding: 100px 0 120px; /* space for header/footer */
-  text-align: center;
-}
-
-/* === Top Bar === */
-.bar {
-  font-family: "Courier New", Courier, monospace;
-  background-color: #fff;
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 11px;
-  letter-spacing: 1px;
-  border-bottom: 1px solid #ccc;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.bar a {
-  color: #000;
-  text-decoration: none;
-  margin: 0 10px;
-  opacity: 0.8;
-}
-
-.bar a:hover {
-  opacity: 1;
-}
-
-/* === Article Styling === */
-article {
-  width: 370px;
-  background: #fff;
-  padding: 30px 20px;
-  margin: 20px auto;
-  font-size: 10px;
-  line-height: 1.8;
-  text-align: left;
-  border-radius: 4px;
-  box-shadow: 0 0 3px rgba(0,0,0,0.05);
-}
-
-article h1, article h2 {
-  margin: 0;
-  padding: 0;
-  text-transform: uppercase;
+@font-face {
+  font-family: 'font';
+  src: url('/font/Font-Regular.ttf') format('truetype');
   font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'font';
+  src: url('/font/Font-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
 
-article h1 {
-  float: left;
-  color: #333;
+.Highlights {
+    
 }
 
-article h2 {
-  float: right;
-  color: #aaa;
+body {
+    background: #000435;
+    color: #e0e0e0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+    max-width: 800px;
+  	margin: 15px;
+    font-family: font;
+    font-weight: normal;
+    line-height: 1.2rem;
+    word-wrap: break-word;
 }
 
-.clearfix::after {
-  content: "";
-  display: table;
-  clear: both;
+main {
 }
 
-/* === Header + Nav === */
-header {
-  font-family: "Courier New", Courier, monospace;
-  font-size: 11px;
-  text-transform: uppercase;
-  float: left;
-  background: #fff;
-  color: #000;
+img {
+	max-width: 100%;
 }
 
-nav {
-  float: right;
+strong, b {
+  font-weight: bold;
 }
 
-nav a {
-  color: #000;
-  text-decoration: none;
-  opacity: 0.6;
-  margin-left: 5px;
-}
-
-nav a:hover {
-  opacity: 1;
-}
-
-/* === Footer (pagination) === */
-footer {
-  font-family: "Courier New", Courier, monospace;
-  color: #fff;
-  text-transform: uppercase;
-  font-size: 12px;
-  letter-spacing: 1px;
-  text-align: center;
-  margin-top: 30px;
-}
-
-footer a {
-  color: #fff;
-  text-decoration: none;
-  opacity: 0.7;
-  margin: 0 10px;
-}
-
-footer a:hover {
-  opacity: 1;
-}
-
-/* === Bottom Icon Bar === */
 .bottom-footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 0;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(6px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px 0;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	font-family: "Courier New", Courier, monospace;
+	color: #FFF;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: uppercase;
+	font-size: 12px;
+	letter-spacing: 1px;
+	background-color: rgba(0, 0, 0, 0.3);
+	backdrop-filter: blur(5px);
 }
 
 .bottom-footer img {
-  margin: 0 5px;
-  max-height: 30px;
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
+	margin: 0 5px;
+	max-height: 30px;
+	opacity: 0.8;
+	transition: opacity 0.3s ease;
 }
 
 .bottom-footer img:hover {
-  opacity: 1;
+	opacity: 1;
 }
 
-/* === Main Blog === */
-main {
-  display: block;
-  margin-top: 30px;
+h1 {
+    color: #2289DD;
+    text-decoration: underline #f5f5dc;
+    text-align: center;
+}
+
+h2 {
+    color: #2289DD;
+}
+
+h3 {
+    color: #2289DD;
+}
+
+a {
+    color: #f5f5dc;
+}
+
+a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+}
+
+summary {
+    color: #008800;
+    background: #101210;
+}
+
+details {
+    background: #222;
+}
+
+summary:hover {
+  color: #fff;
+  cursor: pointer;
+}
+
+.service {
+  padding: 0.5rem;
+  border: solid thin #f5f5dc;
 }
