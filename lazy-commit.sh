@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /home/dan/fluid46.github.io
+cd ~/Documents/fluid46.github.io
 # Prompt for commit message
 read -rp "Enter commit message: " COMMIT_MESSAGE
 
